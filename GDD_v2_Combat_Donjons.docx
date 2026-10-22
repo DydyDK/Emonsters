@@ -1,0 +1,600 @@
+BOBY — Game Design Document v2.0
+
+🎮
+
+**BOBY**
+
+*Apprivoiser ses émotions, ensemble*
+
+Game Design Document
+
+Version 2.0 — Édition Combat & Donjons
+
+Janvier 2026
+
+# Table des matières
+
+1. Vision & Résumé Exécutif
+
+2. Public Cible
+
+3. Univers & Concept
+
+4. Parcours Utilisateur
+
+5. Mécaniques de Jeu — Exploration & PNJ
+
+**6. Système de Combat ****&**** Apprentissage**
+
+**7. Les Donjons Émotionnels**
+
+8. Système Social
+
+9. Fonctionnalités MVP vs Futures
+
+10. Direction Artistique
+
+11. Architecture Technique
+
+12. Modèle Économique
+
+13. Partenariats & Go-to-Market
+
+14. Roadmap
+
+# 1. Vision & Résumé Exécutif
+
+## La Mission
+
+Boby a pour mission de **démocratiser la santé mentale** en rendant les émotions accessibles, compréhensibles et partageables. En personnifiant les émotions sous forme de monstres attachants, nous permettons à chacun de mieux comprendre ce qui se passe en lui et de se sentir moins seul face à ses difficultés.
+
+## Le Problème
+
+Parler de ses émotions reste tabou. L'anxiété, la peur, la honte sont vécues dans l'isolement. Les personnes qui en souffrent se sentent « anormales », « cassées », et peinent à mettre des mots sur ce qu'elles vivent. Les outils existants sont soit trop cliniques (applications de thérapie), soit trop superficiels (trackers d'humeur).
+
+## La Solution
+
+Boby propose une plateforme où chacun peut créer des « monstres émotionnels » — des représentations visuelles et personnalisées de ses émotions difficiles. Ces monstres ne sont pas effrayants : ils sont mignons, attachants, et surtout *extérieurs à soi*. Cette externalisation permet de parler plus facilement de sujets complexes : ce n'est plus « je suis anxieux » mais « mon monstre de l'anxiété fait ça ».
+
+## Le Format
+
+Une application web/mobile qui mélange les codes du **MMORPG** (monde ouvert, avatars, quêtes, donjons, combats) et du **jeu éducatif** (apprentissage par la pratique, questions issues de la psychologie). Les utilisateurs progressent en répondant à des questions qui les font réfléchir sur eux-mêmes et apprendre sur le comportement humain.
+
+| 🎯 **Apprendre** Psychologie & comportement | ⚔️ **Combattre** Affronter ses peurs par le jeu | 🤝 **Partager** Communauté d'entraide |
+| --- | --- | --- |
+
+# 2. Public Cible
+
+## Personas Principaux
+
+### Léa, 24 ans — L'anxieuse silencieuse
+
+- **Profil : **Jeune active, premier emploi, syndrome de l'imposteur
+
+- **Douleur : **Se sent « pas normale », n'ose pas en parler à ses collègues
+
+- **Besoin : **Comprendre ce qui lui arrive, se sentir moins seule
+
+- **Usage Boby : **Crée son monstre, explore les donjons sur l'imposteur, apprend des stratégies
+
+### Thomas, 15 ans — L'ado introverti
+
+- **Profil : **Lycéen, timide, évite les interactions sociales, gamer
+
+- **Douleur : **A du mal à s'exprimer, se sent différent des autres
+
+- **Besoin : **Un espace ludique pour s'exprimer sans pression
+
+- **Usage Boby : **Accroche sur le gameplay RPG, reste pour l'introspection
+
+### Sophie, 38 ans — La coach / thérapeute
+
+- **Profil : **Professionnelle de l'accompagnement, cherche des outils innovants
+
+- **Douleur : **Les outils classiques sont trop froids, peu engageants
+
+- **Besoin : **Un support ludique pour ses séances
+
+- **Usage Boby : **Utilise les donjons comme exercices avec ses clients
+
+## Segments de Marché
+
+| **Segment** | **Âge** | **Motivation** | **Priorité** |
+| --- | --- | --- | --- |
+| B2C Grand Public | 15-35 ans | Jouer, apprendre, partager | 🟢 Haute |
+| B2B Éducation | Écoles, collèges | Outil pédagogique | 🟡 Moyenne |
+| B2B Santé | Psys, coachs | Support thérapeutique | 🟡 Moyenne |
+
+# 3. Univers & Concept
+
+## Le Concept Central : L'Externalisation
+
+Le principe fondamental de Boby repose sur l'**externalisation**, une technique issue de la thérapie narrative. Au lieu de dire « je suis anxieux » (identité), on dit « j'ai un monstre de l'anxiété qui fait X » (relation avec quelque chose d'extérieur).
+
+Cette distinction est cruciale : l'utilisateur n'*est* plus le problème, il *a* un compagnon encombrant. Cela réduit la honte, facilite la parole, et ouvre la voie à l'action.
+
+## La Métaphore du Combat
+
+Dans Boby, **comprendre ses émotions = les combattre**. Plus tu apprends sur le fonctionnement de la peur, de l'anxiété, des biais cognitifs, moins ces émotions ont d'emprise sur toi. C'est exactement ce que fait la thérapie cognitive : déconstruire les mécanismes pour reprendre le contrôle.
+
+Le jeu transforme cette démarche en aventure : les monstres sauvages te « attaquent » avec des questions, et **ta connaissance est ton arme**. Bien répondre = fuir le monstre = gagner de l'expérience.
+
+## L'Univers de Boby
+
+- **Ton général : **Bienveillant mais challengeant. On apprend en jouant.
+
+- **Esthétique : **Couleurs pastel, monstres mignons, ambiance RPG accessible
+
+- **Inspirations : **Pokémon (rencontres sauvages), Zelda (donjons), Duolingo (apprentissage gamifié)
+
+- **Philosophie : **Pas de punition sévère. On encourage la progression, pas la perfection.
+
+# 4. Parcours Utilisateur
+
+## Onboarding — Style Pokémon
+
+L'expérience commence par un accueil simple et immersif, inspiré des premiers Pokémon : direct, chaleureux, sans friction.
+
+### Étape 1 : Écran d'accueil
+
+- Boby (la mascotte) apparaît avec une animation douce
+
+- Message d'accueil : « Bienvenue dans le monde de Boby... »
+
+- Bouton : « Commencer l'aventure »
+
+### Étape 2 : Création du compte
+
+- Pseudo uniquement (anonymat)
+
+- Email (pour récupération)
+
+### Étape 3 : Création du premier monstre
+
+Character creator progressif, une question à la fois :
+
+- **Forme du corps **— Ovale, rond, blob, grand
+
+- **Couleur du corps **— Palette de couleurs
+
+- **Type d****'****yeux **— Cyclope, double, triple, endormi
+
+- **Type de bouche **— Grande, petite, dentelée, sourire
+
+- **Accessoires **— Antennes, cornes, oreilles, piques
+
+- **Nom **— « Comment s'appelle-t-il ? »
+
+### Étape 4 : Fiche d'identité émotionnelle
+
+L'utilisateur renseigne les caractéristiques de son monstre :
+
+- **Quand apparaît-il ? **(contextes déclencheurs)
+
+- **Qu****'****est-ce qui le fait grossir ? **(comportements qui l'alimentent)
+
+- **Qu****'****est-ce qui l****'****apaise ? **(stratégies de coping)
+
+- **Que te murmure-t-il ? **(pensées négatives associées)
+
+### Étape 5 : Tutoriel de combat
+
+Une première rencontre sauvage guidée pour expliquer les mécaniques : question simple, explication du système de fuite/XP, encouragement.
+
+# 5. Mécaniques de Jeu — Exploration & PNJ
+
+## Le Monde Ouvert
+
+Après la création de son monstre, l'utilisateur arrive dans un **monde ouvert** où il peut explorer librement. Ce monde est peuplé d'autres monstres (utilisateurs), de monstres sauvages (combats), et de PNJ (savoirs).
+
+### Zones du Monde
+
+- **La Clairière d****'****Accueil : **Zone de départ, tutoriel, premiers PNJ
+
+- **La Forêt des Murmures : **Monstres sauvages niveau 1-10
+
+- **Les Collines Brumeuses : **Monstres niveau 10-20, premiers donjons
+
+- **Le Pic des Tempêtes : **Monstres niveau 20+, donjons avancés
+
+- **Le Village Central : **Hub social, échanges entre joueurs
+
+## Les PNJ — Gardiens du Savoir
+
+Disséminés dans le monde, des **PNJ thématiques** offrent des connaissances. Parler aux PNJ ne déclenche pas de combat mais donne de l'XP et débloque des savoirs.
+
+### Exemples de PNJ
+
+- **Le Sage de la Respiration : **Techniques de respiration, cohérence cardiaque
+
+- **L****'****Oracle des Biais : **Biais cognitifs, distorsions de pensée
+
+- **Le Gardien des Conflits : **Communication non-violente, gestion de conflit
+
+- **Le Veilleur des Émotions : **Neurobiologie, rôle de l'amygdale
+
+- **L****'****Archiviste des Patterns : **Schémas répétitifs, thérapie des schémas
+
+# 6. Système de Combat & Apprentissage
+
+**Le cœur du gameplay. **En explorant le monde, le joueur rencontre des monstres sauvages. Ces rencontres déclenchent un « combat » basé sur des questions issues de la psychologie, de la sociologie et de la théorie comportementale.
+
+## Rencontres Sauvages
+
+### Déclenchement
+
+- En se déplaçant dans le monde, des monstres sauvages apparaissent aléatoirement
+
+- Chaque zone a des monstres de niveau différent
+
+- Le monstre pose une question au joueur
+
+### Mécanique de Combat
+
+- Le monstre apparaît avec une question
+
+- Le joueur répond (QCM, vrai/faux, ou réponse ouverte)
+
+- **Bonne réponse : **Le joueur « fuit » le monstre, gagne de l'XP
+
+- **Mauvaise réponse : **Explication pédagogique, pas de pénalité sévère, possibilité de réessayer
+
+## Progression des Questions
+
+Le niveau du monstre détermine la complexité de la question. Plus on progresse, plus les questions demandent de l'introspection.
+
+| **Niveau** | **Type** | **Exemple** |
+| --- | --- | --- |
+| 1-5 | QCM factuel | « Qu'est-ce que l'amygdale ? » A) Un fruit B) Une partie du cerveau C) Un muscle |
+| 5-10 | QCM + réflexion | « Quelle émotion ressens-tu le plus souvent au travail ? » + options |
+| 10-15 | Question ouverte courte | « Décris en une phrase une situation que tu évites régulièrement » |
+| 15-20 | Introspection guidée | « Identifie un pattern qui se répète dans tes relations. Qu'est-ce qui le déclenche ? » |
+| 20+ | Exercice d'écriture | « Écris une lettre à ton monstre de l'anxiété. Dis-lui ce que tu ressens. » |
+
+## Thématiques des Questions
+
+Les questions sont issues de vraies disciplines pour garantir la valeur éducative :
+
+- **Psychologie cognitive : **Biais cognitifs, distorsions, pensées automatiques
+
+- **Neurosciences : **Fonctionnement du cerveau, amygdale, cortisol
+
+- **Thérapie comportementale : **TCC, exposition, renforcement
+
+- **Sociologie : **Normes sociales, pression des pairs, rôles
+
+- **Intelligence émotionnelle : **Reconnaissance, régulation, empathie
+
+- **Communication : **CNV, assertivité, écoute active
+
+## Récompenses de Combat
+
+- **XP : **Points d'expérience pour monter de niveau
+
+- **Connaissances : **Fiches de savoir débloquées dans un « Codex »
+
+- **Fragments : **Monnaie pour débloquer des cosmétiques
+
+# 7. Les Donjons Émotionnels
+
+**L****'****expérience ultime de Boby. **Inspirés de Zelda, les donjons sont des parcours thématiques avec une progression narrative, des défis croissants, et un boss final. Chaque donjon terminé récompense le joueur avec un cosmétique unique et exclusif.
+
+## Structure d'un Donjon
+
+### Architecture Type
+
+- **Salle d****'****entrée : **Introduction au thème, contexte narratif
+
+- **Salles 1-3 : **Questions progressives sur le thème (QCM → ouvertes)
+
+- **Salle du Miroir : **Moment d'introspection personnelle
+
+- **Anti-chambre : **Récapitulatif, préparation au boss
+
+- **Salle du Boss : **Défi final (série de questions ou exercice d'écriture)
+
+### Mécaniques de Boss
+
+Les boss sont des défis plus intenses qui demandent un vrai engagement :
+
+- **Boss « Endurance » : **Série de 5-10 questions d'affilée sans erreur
+
+- **Boss « Expression » : **Exercice d'écriture (lettre, liste, récit)
+
+- **Boss « Confession » : **Se livrer sur une expérience personnelle
+
+- **Boss « Défi » : **S'engager à faire quelque chose dans la vraie vie
+
+## Catalogue des Donjons
+
+**  ⚔️ Le Donjon de l****'****Imposteur**
+
+**Niveau requis : **5 | **Durée : **~20 min
+
+**Thème : **Le syndrome de l'imposteur, la peur de ne pas mériter sa place
+
+**Salles : **1) Qu'est-ce que l'imposteur ? 2) D'où vient-il ? 3) Ses mensonges préférés 4) Miroir : Quand l'as-tu ressenti ? 5) Boss
+
+**Boss : **« Liste 5 réussites dont tu es fier·e. Pour chacune, explique pourquoi tu la mérites. »
+
+**Récompense : ***Couronne de Légitimité* (accessoire tête)
+
+**  🏃 La Caverne de l****'****Évitement**
+
+**Niveau requis : **8 | **Durée : **~25 min
+
+**Thème : **Pourquoi on fuit ce qui nous fait peur, le cercle vicieux de l'évitement
+
+**Salles : **1) Le réflexe de fuite 2) Le renforcement négatif 3) Le coût de l'évitement 4) Miroir : Qu'évites-tu ? 5) Boss
+
+**Boss : **« Identifie un évitement récent. Décris ce que tu aurais pu faire autrement et engage-toi à essayer cette semaine. »
+
+**Récompense : ***Cape du Courage* (accessoire dos)
+
+**  🔥 La Tour de la Colère**
+
+**Niveau requis : **12 | **Durée : **~25 min
+
+**Thème : **La colère comme émotion secondaire, ce qu'elle cache, comment l'exprimer sainement
+
+**Salles : **1) À quoi sert la colère ? 2) Ce qu'elle cache 3) Colère saine vs destructrice 4) Miroir : Ta dernière colère 5) Boss
+
+**Boss : **« Écris ce que tu dirais à quelqu'un qui t'a blessé, en utilisant la communication non-violente. »
+
+**Récompense : ***Aura de Sérénité* (effet visuel)
+
+**  🗣️ Le Labyrinthe Social**
+
+**Niveau requis : **10 | **Durée : **~30 min
+
+**Thème : **L'anxiété sociale, la peur du jugement, les croyances limitantes sur les autres
+
+**Salles : **1) L'effet projecteur 2) Les distorsions sociales 3) Ce que pensent vraiment les autres 4) Miroir : Tes peurs sociales 5) Boss
+
+**Boss : **« Identifie 3 croyances limitantes sur toi en société. Pour chacune, trouve une preuve du contraire dans ton vécu. »
+
+**Récompense : ***Badge du Connecteur* (badge profil)
+
+**  🪞 Le Temple de l****'****Estime**
+
+**Niveau requis : **15 | **Durée : **~35 min
+
+**Thème : **L'estime de soi, la différence avec la confiance, l'auto-compassion
+
+**Salles : **1) Estime vs Confiance 2) L'origine de l'estime 3) Le critique intérieur 4) L'auto-compassion 5) Miroir 6) Boss
+
+**Boss : **« Écris une lettre bienveillante à toi-même, comme tu l'écrirais à un·e ami·e qui traverse un moment difficile. »
+
+**Récompense : ***Éclat Intérieur* (effet lumineux permanent)
+
+**  ⏰ La Crypte de la Procrastination**
+
+**Niveau requis : **8 | **Durée : **~20 min
+
+**Thème : **Pourquoi on procrastine (pas la paresse), régulation émotionnelle, stratégies
+
+**Salles : **1) Le mythe de la paresse 2) Procrastination = régulation émotionnelle 3) Les déclencheurs 4) Miroir 5) Boss
+
+**Boss : **« Identifie une tâche que tu repousses. Décompose-la en 3 micro-étapes de 5 minutes. Engage-toi sur la première. »
+
+**Récompense : ***Bottes de l**'**Action* (accessoire pieds)
+
+## Les Cosmétiques — Badges de Fierté
+
+Chaque donjon terminé offre un **cosmétique unique et exclusif**. Ces accessoires sont visibles par tous les autres joueurs. Ils deviennent des **badges de fierté thérapeutique** : « Tu as la Cape du Courage ? Tu as traversé la Caverne de l'Évitement ! »
+
+**Catégories de cosmétiques :**
+
+- **Accessoires tête : **Couronnes, chapeaux, cornes spéciales
+
+- **Accessoires corps : **Capes, ailes, armures
+
+- **Effets visuels : **Auras, particules, traces de pas
+
+- **Badges profil : **Icônes affichées sur la fiche monstre
+
+# 8. Système Social
+
+## Interactions Progressives
+
+Le système social est conçu pour être **progressif et sécurisé**. Pas d'échange direct immédiat — il faut d'abord établir une connexion.
+
+### Phase 1 : Réponses préformatées
+
+Quand on clique sur un monstre, on peut voir sa fiche et envoyer des réponses préformatées :
+
+- « Hey, stylé ton monstre ! 👋 »
+
+- « Le mien aussi fait ça parfois »
+
+- « Comment tu l'as apprivoisé ? »
+
+- « Merci de partager ça 🙏 »
+
+### Phase 2 : Chat débloqué
+
+Après 4 échanges préformatés mutuels, le chat libre se débloque.
+
+## Système de Nourriture
+
+Les utilisateurs peuvent « nourrir » les monstres des autres pour les **remercier d****'****une interaction positive**. Nourrir = donner des points d'XP. C'est l'autre qui décide si l'interaction valait le coup.
+
+## Système de Niveaux
+
+| **Niveau** | **Comment progresser** | **Déblocages** |
+| --- | --- | --- |
+| 1-5 | Créer monstre, premiers combats | Premiers donjons, zone 2 |
+| 5-10 | Combats, donjons, interactions | Nouvelles couleurs, zone 3 |
+| 10-20 | Donjons avancés, être nourri | Multi-monstres, zone 4 |
+| 20+ | Tout le contenu | Donjons légendaires, titre spécial |
+
+# 9. Fonctionnalités MVP vs Futures
+
+## MVP — Version 1.0
+
+**Objectif : **Valider la boucle de gameplay combat + apprentissage
+
+| **Fonctionnalité** | **Description** |
+| --- | --- |
+| Character Creator | 5 formes, 6 couleurs, 4 yeux, 4 bouches, 5 accessoires |
+| Monde simplifié | 2 zones, monstres sauvages niveau 1-10 |
+| Système de combat | 50 questions QCM, système XP basique |
+| 2 donjons | Imposteur + Évitement, avec boss et cosmétiques |
+| 3 PNJ | Respiration, Émotions, Biais cognitifs |
+| Interactions basiques | Voir les monstres des autres, réponses préformatées |
+
+## Version 2.0 — Expansion
+
+- 4 zones supplémentaires
+
+- 4 donjons supplémentaires (Colère, Social, Estime, Procrastination)
+
+- 200+ questions avec progression ouverte
+
+- Multi-monstres
+
+- Chat débloqué et système de nourriture
+
+## Version 3.0 — Premium
+
+- Impression 3D des monstres
+
+- Donjons légendaires (difficiles, longs)
+
+- Mode coach/thérapeute
+
+- API B2B pour écoles et entreprises
+
+# 10. Direction Artistique
+
+## Principes
+
+- **Douceur : **Formes arrondies, transitions fluides
+
+- **Accessibilité : **Interface claire, pas surchargée
+
+- **Chaleur : **Couleurs pastel, ambiance rassurante
+
+- **RPG moderne : **Inspirations Pokémon/Zelda, UI gaming
+
+## Palette
+
+| Corail | #FF6B35 | Accent, CTA, combat |
+| --- | --- | --- |
+| Menthe | #B8E0D2 | Réussite, apaisement |
+| Lavande | #D6C7E8 | Introspection, donjons |
+| Nuit | #1A1A2E | Textes, monstres |
+
+## Typographie
+
+- **Titres : **Fredoka — ronde, chaleureuse
+
+- **Corps : **Nunito — lisible, douce
+
+# 11. Architecture Technique
+
+## Stack Recommandée
+
+### Frontend
+
+- React / Next.js + Tailwind CSS + Framer Motion
+
+- SVG dynamiques pour les monstres
+
+### Backend
+
+- Node.js + PostgreSQL + Redis
+
+- WebSockets pour le temps réel
+
+### Base de Questions
+
+Système de gestion de contenu pour les questions avec tags (thème, niveau, type), validées par des professionnels de santé mentale.
+
+## Modèle de Données (Clé)
+
+**Questions**
+
+id, theme, level, type (qcm/open/writing), content, options, correct_answer, explanation
+
+**Dungeons**
+
+id, name, theme, required_level, rooms (JSON), boss_config, reward_cosmetic_id
+
+**UserProgress**
+
+user_id, completed_dungeons[], answered_questions[], unlocked_cosmetics[], level, xp
+
+# 12. Modèle Économique
+
+## Freemium + E-commerce
+
+### Gratuit
+
+- Création monstre + fiche
+
+- Accès zones 1-2, combats niveau 1-10
+
+- 2 donjons de base
+
+- Interactions sociales de base
+
+### Premium (~5€/mois)
+
+- Toutes les zones et donjons
+
+- Multi-monstres illimités
+
+- Cosmétiques exclusifs
+
+- Codex complet des connaissances
+
+### E-commerce
+
+- **Impression 3D : **30-50€ par figurine
+
+- **Packs cosmétiques : **2-5€
+
+### B2B
+
+- Licences écoles
+
+- Mode coach/thérapeute
+
+- Programme entreprise
+
+# 13. Partenariats & Go-to-Market
+
+## Partenaires Clés
+
+- **Éducation : **Rectorats, EdTech
+
+- **Santé mentale : **Psycom, Fil Santé Jeunes, ordres professionnels
+
+- **Gaming : **Streamers santé mentale, communautés gaming
+
+- **Entreprises : **Moka.care, Alan, DRH grands groupes
+
+## Stratégie de Lancement
+
+- **Phase 1 — Communauté : **Discord, beta testeurs, créateurs de contenu
+
+- **Phase 2 — Viralité : **TikTok/YouTube (« Montre ton monstre »), partage de cosmétiques
+
+- **Phase 3 — B2B : **Pilotes écoles, partenariats psy
+
+# 14. Roadmap
+
+| **Période** | **Phase** | **Objectifs** |
+| --- | --- | --- |
+| T1 2026 | Prototype | Valider gameplay combat + 1 donjon, 50 testeurs |
+| T2 2026 | MVP | 2 zones, 2 donjons, 50 questions, 500 utilisateurs |
+| T3 2026 | Lancement | Public, 5 000 utilisateurs, premiers premium |
+| T4 2026 | Expansion | 6 donjons, 200 questions, pilotes B2B |
+| 2027 | Scale | Impression 3D, 50 000 utilisateurs, rentabilité |
+
+— Fin du document —
+
+Boby © 2026 — Version 2.0 Combat & Donjons
+
+Page  /
