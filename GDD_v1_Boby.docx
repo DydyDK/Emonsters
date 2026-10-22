@@ -1,0 +1,539 @@
+BOBY — Game Design Document
+
+🎮
+
+**BOBY**
+
+*Apprivoiser ses émotions, ensemble*
+
+Game Design Document
+
+Version 1.0
+
+Janvier 2026
+
+# Table des matières
+
+1. Vision & Résumé Exécutif
+
+2. Public Cible
+
+3. Univers & Concept
+
+4. Parcours Utilisateur
+
+5. Mécaniques de Jeu
+
+6. Système Social
+
+7. Fonctionnalités MVP vs Futures
+
+8. Direction Artistique
+
+9. Architecture Technique
+
+10. Modèle Économique
+
+11. Partenariats & Go-to-Market
+
+12. Roadmap
+
+# 1. Vision & Résumé Exécutif
+
+## La Mission
+
+Boby a pour mission de **démocratiser la santé mentale** en rendant les émotions accessibles, compréhensibles et partageables. En personnifiant les émotions sous forme de monstres attachants, nous permettons à chacun de mieux comprendre ce qui se passe en lui et de se sentir moins seul face à ses difficultés.
+
+## Le Problème
+
+Parler de ses émotions reste tabou. L'anxiété, la peur, la honte sont vécues dans l'isolement. Les personnes qui en souffrent se sentent « anormales », « cassées », et peinent à mettre des mots sur ce qu'elles vivent. Les outils existants sont soit trop cliniques (applications de thérapie), soit trop superficiels (trackers d'humeur).
+
+## La Solution
+
+Boby propose une plateforme où chacun peut créer des « monstres émotionnels » — des représentations visuelles et personnalisées de ses émotions difficiles. Ces monstres ne sont pas effrayants : ils sont mignons, attachants, et surtout *extérieurs à soi*. Cette externalisation permet de parler plus facilement de sujets complexes : ce n'est plus « je suis anxieux » mais « mon monstre de l'anxiété fait ça ».
+
+## Le Format
+
+Une application web/mobile qui mélange les codes du **MMORPG** (monde ouvert, avatars personnalisés, quêtes, PNJ) et du **réseau social bienveillant** (partage, interactions, entraide). Les utilisateurs créent leurs monstres, explorent un monde peuplé d'autres monstres, et peuvent interagir avec eux de manière progressive et sécurisée.
+
+| 🎯 **Objectif** Vulgariser la santé mentale | 💡 **Méthode** Externalisation par le jeu | 🤝 **Impact** Communauté d'entraide |
+| --- | --- | --- |
+
+# 2. Public Cible
+
+## Personas Principaux
+
+### Léa, 24 ans — L'anxieuse silencieuse
+
+- **Profil : **Jeune active, premier emploi, syndrome de l'imposteur
+
+- **Douleur : **Se sent « pas normale », n'ose pas en parler à ses collègues
+
+- **Besoin : **Comprendre ce qui lui arrive, se sentir moins seule
+
+- **Usage Boby : **Crée son monstre de l'imposteur, découvre que d'autres ont le même
+
+### Thomas, 15 ans — L'ado introverti
+
+- **Profil : **Lycéen, timide, évite les interactions sociales
+
+- **Douleur : **A du mal à s'exprimer, se sent différent des autres
+
+- **Besoin : **Un espace safe pour s'exprimer sans jugement
+
+- **Usage Boby : **Dessine son monstre de la timidité, échange avec d'autres via les interactions préformatées
+
+### Sophie, 38 ans — La coach / thérapeute
+
+- **Profil : **Professionnelle de l'accompagnement, cherche des outils innovants
+
+- **Douleur : **Les outils classiques sont trop froids, peu engageants
+
+- **Besoin : **Un support ludique pour ses séances
+
+- **Usage Boby : **Utilise Boby avec ses clients pour faciliter l'expression émotionnelle
+
+## Segments de Marché
+
+| **Segment** | **Âge** | **Motivation** | **Priorité** |
+| --- | --- | --- | --- |
+| B2C Grand Public | 15-35 ans | Comprendre, partager | 🟢 Haute |
+| B2B Éducation | Écoles, collèges | Outil pédagogique | 🟡 Moyenne |
+| B2B Santé | Psys, coachs | Support thérapeutique | 🟡 Moyenne |
+
+# 3. Univers & Concept
+
+## Le Concept Central : L'Externalisation
+
+Le principe fondamental de Boby repose sur l'**externalisation**, une technique issue de la thérapie narrative. Au lieu de dire « je suis anxieux » (identité), on dit « j'ai un monstre de l'anxiété qui fait X » (relation avec quelque chose d'extérieur).
+
+Cette distinction est cruciale : l'utilisateur n'*est* plus le problème, il *a* un compagnon encombrant. Cela réduit la honte, facilite la parole, et ouvre la voie à l'action.
+
+## L'Univers de Boby
+
+**Ton général : **Bienveillant, doux, légèrement décalé. Les monstres ne sont pas effrayants — ils sont maladroits, attachants, parfois agaçants, mais jamais méchants.
+
+**Esthétique : **Couleurs pastel, formes rondes, typographies chaleureuses. Un univers qui rassure.
+
+**Métaphores : **Les monstres « grossissent » quand on les nourrit d'évitement, « rétrécissent » quand on les affronte. Ils « murmurent » des pensées négatives. Ils « apparaissent » dans certains contextes.
+
+## Le Personnage de Boby
+
+Boby est le monstre « mascotte » — un cyclope noir avec une grande bouche orange et des antennes. Il représente la peur/timidité sous sa forme la plus universelle. Mais chaque utilisateur est invité à créer **ses propres monstres**, avec leur apparence et leurs caractéristiques uniques.
+
+## Types de Monstres
+
+Chaque utilisateur peut créer plusieurs monstres, chacun représentant une émotion ou un pattern différent :
+
+- **Monstres de la peur : **Anxiété, panique, phobie sociale, terreur
+
+- **Monstres de l****'****estime : **Syndrome de l'imposteur, auto-critique, perfectionnisme
+
+- **Monstres de la colère : **Frustration, irritabilité, rage rentrée
+
+- **Monstres de la tristesse : **Mélancolie, solitude, nostalgie
+
+- **Monstres des comportements : **Procrastination, évitement, addiction
+
+# 4. Parcours Utilisateur
+
+## Onboarding — Style Pokémon
+
+L'expérience commence par un accueil simple et immersif, inspiré des premiers Pokémon : direct, chaleureux, sans friction.
+
+### Étape 1 : Écran d'accueil
+
+- Boby (la mascotte) apparaît avec une animation douce
+
+- Message d'accueil : « Bienvenue dans le monde de Boby. Ici, chacun porte en lui des petits monstres... »
+
+- Bouton : « Commencer l'aventure »
+
+### Étape 2 : Création du compte
+
+- Pseudo uniquement (pas de nom réel)
+
+- Email (pour récupération)
+
+- Optionnel : avatar simple pour le profil humain
+
+### Étape 3 : Création du premier monstre
+
+Character creator progressif, une question à la fois :
+
+- **Forme du corps **— « Quelle forme a ton monstre ? »
+
+- **Couleur du corps **— « De quelle couleur est-il ? »
+
+- **Type d****'****yeux **— « Comment voit-il le monde ? »
+
+- **Type de bouche **— « Comment s'exprime-t-il ? »
+
+- **Accessoires **— « A-t-il quelque chose de spécial ? »
+
+- **Nom **— « Comment s'appelle-t-il ? »
+
+### Étape 4 : Fiche d'identité émotionnelle
+
+Une fois le visuel créé, l'utilisateur renseigne les caractéristiques de son monstre :
+
+- **Quand apparaît-il ? **(contextes déclencheurs)
+
+- **Qu****'****est-ce qui le fait grossir ? **(comportements qui l'alimentent)
+
+- **Qu****'****est-ce qui l****'****apaise ? **(stratégies de coping)
+
+- **Que te murmure-t-il ? **(pensées négatives associées)
+
+Des suggestions cliquables sont proposées pour faciliter la saisie, avec possibilité d'ajouter des réponses personnalisées.
+
+### Étape 5 : Choix du mode d'entrée
+
+L'utilisateur choisit comment il veut commencer :
+
+- **Mode Solo : **« Je veux explorer et en apprendre plus sur moi »
+
+- **Mode Social : **« Je veux découvrir les monstres des autres »
+
+# 5. Mécaniques de Jeu
+
+## Le Monde Ouvert
+
+Après la création de son monstre, l'utilisateur arrive dans un **monde ouvert** où il peut explorer librement. Ce monde est peuplé d'autres monstres (ceux des autres utilisateurs) et de PNJ (personnages non-joueurs).
+
+### Exploration Libre
+
+- Pas de catégorisation des monstres (pas de « zone anxiété » vs « zone colère »)
+
+- On croise tous types de monstres, comme dans la vraie vie
+
+- Possibilité de cliquer sur n'importe quel monstre pour voir sa fiche
+
+## Les PNJ — Gardiens du Savoir
+
+Disséminés dans le monde, des **PNJ thématiques** offrent des connaissances sur différents sujets. Ce sont les « sages » de l'univers Boby.
+
+### Exemples de PNJ
+
+- **Le Sage de la Respiration : **Enseigne les techniques de respiration
+
+- **Le Gardien des Conflits : **Explique comment gérer les situations conflictuelles
+
+- **L****'****Oracle de l****'****Estime : **Partage des connaissances sur le syndrome de l'imposteur
+
+- **Le Veilleur des Émotions : **Explique la neurobiologie des émotions (comme l'amygdale)
+
+### Fonctionnement des PNJ
+
+- Dialogues interactifs avec choix de réponses
+
+- Contenu éducatif vulgarisé et accessible
+
+- Quêtes simples : « Pratique cette technique 3 fois cette semaine »
+
+- Parler aux PNJ contribue à la progression de niveau
+
+## Système de Quêtes
+
+Les quêtes sont des invitations à l'action, jamais des obligations :
+
+- **Quêtes de découverte : **« Parle à 3 PNJ différents »
+
+- **Quêtes de connexion : **« Échange avec 2 monstres cette semaine »
+
+- **Quêtes personnelles : **« Mets à jour la fiche de ton monstre »
+
+- **Quêtes de pratique : **« Essaie une technique de respiration »
+
+# 6. Système Social
+
+## Interactions Progressives
+
+Le système social est conçu pour être **progressif et sécurisé**. Pas d'échange direct immédiat — il faut d'abord établir une connexion.
+
+### Phase 1 : Découverte (Réponses préformatées)
+
+Quand on clique sur un monstre, on peut voir sa fiche et envoyer des réponses préformatées :
+
+- « Hey, stylé ton monstre ! 👋 »
+
+- « Le mien aussi fait ça parfois »
+
+- « Comment tu l'as apprivoisé ? »
+
+- « Merci de partager ça 🙏 »
+
+### Phase 2 : Connexion (Chat débloqué)
+
+Après 4 échanges préformatés mutuels, le chat libre se débloque. Cette mécanique :
+
+- Réduit l'anxiété du premier contact
+
+- Filtre les interactions superficielles
+
+- Mime la progression naturelle d'une relation
+
+- Protège contre les abus
+
+## Système de Nourriture — Gratitude Gamifiée
+
+Les utilisateurs peuvent « nourrir » les monstres des autres pour les **remercier d****'****une interaction positive**. C'est une forme de gratitude qui contribue à la progression.
+
+### Fonctionnement
+
+- Après un échange, un bouton « Nourrir ce monstre » apparaît
+
+- Nourrir = donner des points d'XP à l'autre
+
+- Pas d'auto-nourrissage (on ne peut pas se donner des points)
+
+- C'est l'autre qui décide si l'interaction valait le coup
+
+### Intérêt pour l'isolement social
+
+Pour quelqu'un qui souffre d'isolement, recevoir de la « nourriture » d'un autre monstre est une preuve tangible que sa présence a compté pour quelqu'un. C'est un feedback positif non-verbal qui renforce l'estime de soi.
+
+## Système de Niveaux
+
+La progression est basée sur l'engagement positif, pas sur la compétition :
+
+| **Niveau** | **Comment progresser** | **Récompenses** |
+| --- | --- | --- |
+| 1-5 | Créer monstres, explorer | Options de customisation basiques |
+| 5-10 | Interagir, être nourri | Nouvelles couleurs, accessoires |
+| 10-20 | Parler aux PNJ, quêtes | Accès à nouvelles zones |
+| 20+ | Partager articles, aider | Badges spéciaux, fonctionnalités premium |
+
+# 7. Fonctionnalités MVP vs Futures
+
+## MVP — Version 1.0
+
+**Objectif : **Valider le concept core et l'engagement utilisateur
+
+| **Fonctionnalité** | **Description** |
+| --- | --- |
+| Création de compte | Pseudo + email, authentification simple |
+| Character Creator | 5 formes, 6 couleurs, 4 types d'yeux, 4 bouches, 5 accessoires |
+| Fiche monstre | 4 catégories avec suggestions + personnalisé |
+| Monde simplifié | Une zone unique, visualisation des autres monstres |
+| Interactions basiques | Réponses préformatées → chat débloqué après 4 échanges |
+| Système de nourriture | Bouton pour remercier, compteur d'XP |
+| 3 PNJ éducatifs | Respiration, émotions basiques, premiers pas |
+
+## Version 2.0 — Expansion
+
+| **Fonctionnalité** | **Description** |
+| --- | --- |
+| Monde étendu | Plusieurs zones thématiques débloquables |
+| Système de quêtes | Quêtes journalières, hebdomadaires, narratives |
+| Multi-monstres | Possibilité de créer plusieurs monstres différents |
+| PNJ étendus | 10+ PNJ couvrant différents sujets |
+| Partage d'articles | Utilisateurs peuvent partager du contenu éducatif |
+
+## Version 3.0 — Premium & Physique
+
+| **Fonctionnalité** | **Description** |
+| --- | --- |
+| Impression 3D | Commander une figurine de son monstre |
+| Espace coaching | Interface dédiée pour professionnels |
+| Analytics personnel | Suivi de l'évolution de ses monstres dans le temps |
+| API B2B | Intégration pour écoles et entreprises |
+
+# 8. Direction Artistique
+
+## Principes Fondamentaux
+
+- **Douceur : **Pas d'angles vifs, formes arrondies, transitions fluides
+
+- **Accessibilité : **Interface claire, lisible, pas surchargée
+
+- **Chaleur : **Couleurs pastel, ambiance rassurante
+
+- **Non-infantilisant : **Mignon mais pas bébête, adapté aux adultes aussi
+
+## Palette de Couleurs
+
+| Corail | #FF6B35 | Couleur d'accent, CTA, éléments actifs |
+| --- | --- | --- |
+| Menthe | #B8E0D2 | Apaisement, réussite, positif |
+| Lavande | #D6C7E8 | Réflexion, introspection |
+| Pêche | #FFD6C4 | Douceur, confort |
+| Nuit | #1A1A2E | Textes, monstres, éléments sombres |
+
+## Typographie
+
+- **Titres : **Fredoka — ronde, chaleureuse, ludique
+
+- **Corps : **Nunito — lisible, douce, professionnelle
+
+## Design des Monstres
+
+- **Style : **Flat design avec légers dégradés
+
+- **Proportions : **Têtes/corps massifs, membres fins ou absents
+
+- **Yeux : **Grands, expressifs, point de connexion émotionnelle
+
+- **Bouches : **Variées (grande ouverte, timide, dentelée...)
+
+# 9. Architecture Technique
+
+## Stack Recommandée
+
+### Frontend
+
+- **Framework : **React ou Next.js
+
+- **Style : **Tailwind CSS
+
+- **Animations : **Framer Motion
+
+- **Graphismes : **SVG dynamiques pour les monstres
+
+### Backend
+
+- **API : **Node.js avec Express ou NestJS
+
+- **Base de données : **PostgreSQL pour les données structurées
+
+- **Cache : **Redis pour les sessions et le temps réel
+
+- **Temps réel : **WebSockets (Socket.io) pour le chat
+
+### Infrastructure
+
+- **Hébergement : **Vercel (frontend) + Railway/Render (backend)
+
+- **Auth : **Supabase Auth ou Auth0
+
+- **Storage : **Cloudinary pour les images générées
+
+## Modèle de Données (Simplifié)
+
+**Users**
+
+id, pseudo, email, level, xp, created_at
+
+**Monsters**
+
+id, user_id, name, config (JSON), profile (JSON), created_at
+
+**Interactions**
+
+id, from_user, to_user, type, content, created_at
+
+**Feeds**
+
+id, from_user, to_user, xp_amount, created_at
+
+# 10. Modèle Économique
+
+## Stratégie : Freemium + E-commerce
+
+### Gratuit (Core Experience)
+
+- Création de compte et premier monstre
+
+- Accès au monde et aux autres monstres
+
+- Interactions et chat
+
+- Accès aux PNJ basiques
+
+### Premium (Abonnement ~5€/mois)
+
+- Création illimitée de monstres
+
+- Options de customisation avancées
+
+- Accès à toutes les zones
+
+- Analytics personnel
+
+- Accès anticipé aux nouvelles fonctionnalités
+
+### E-commerce (One-shot)
+
+- **Impression 3D : **~30-50€ par figurine personnalisée
+
+- **Packs de customisation : **~2-5€ pour des accessoires exclusifs
+
+- **Goodies : **Stickers, posters du monstre
+
+### B2B (Licences)
+
+- **Écoles : **Licence annuelle par établissement
+
+- **Thérapeutes/Coachs : **Licence pro avec dashboard client
+
+- **Entreprises : **Programme bien-être pour salariés
+
+# 11. Partenariats & Go-to-Market
+
+## Partenaires Stratégiques Potentiels
+
+### Éducation
+
+- Rectorats / Académies pour déploiement en écoles
+
+- Associations de parents d'élèves
+
+- EdTech existantes (Klassroom, Pronote...)
+
+### Santé Mentale
+
+- Psycom (organisme public d'information)
+
+- Fil Santé Jeunes
+
+- Fondation FondaMental
+
+- Ordres professionnels (psychologues, psychiatres)
+
+### Entreprises
+
+- Moka.care, Alan, Teale (bien-être au travail)
+
+- DRH grands groupes
+
+## Stratégie de Lancement
+
+### Phase 1 : Communauté Early Adopters
+
+- Landing page + liste d'attente
+
+- Présence sur les communautés santé mentale (Reddit, Discord)
+
+- Témoignages de beta-testeurs
+
+### Phase 2 : Contenu & Viralité
+
+- Séries de contenus éducatifs (TikTok, Instagram, YouTube)
+
+- Mécaniques de partage intégrées (« Montre ton monstre »)
+
+- Collaborations avec créateurs santé mentale
+
+### Phase 3 : B2B & Institutionnel
+
+- Pilotes en écoles
+
+- Partenariats avec cabinets de psy
+
+- Offre entreprise
+
+# 12. Roadmap
+
+| **Période** | **Phase** | **Objectifs** |
+| --- | --- | --- |
+| T1 2026 | Prototype | Valider le concept avec 50 testeurs, itérer sur le character creator |
+| T2 2026 | MVP | Lancement beta fermée, 500 utilisateurs, premiers retours |
+| T3 2026 | Lancement public | Ouverture au public, 5 000 utilisateurs, premières conversions premium |
+| T4 2026 | Expansion | Multi-monstres, quêtes, 10 PNJ, premiers pilotes B2B |
+| 2027 | Scale | Impression 3D, API B2B, 50 000 utilisateurs |
+
+— Fin du document —
+
+Boby © 2026
+
+Page  /
